@@ -38,11 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'DjangoPrueba.apps.DjangopruebaConfig',
+
+    # Aplicaciones de terceros
+    'rest_framework',
+    'behave_django',
+    'silk',  # Silk para profiling
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    # Silk Middleware debe ir al principio o después de GZip
+    'silk.middleware.SilkyMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
