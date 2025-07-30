@@ -8,7 +8,6 @@ from .models import Producto
 from .forms import ProductoForm
 
 
-@login_required
 def agregar_producto(request):
     """
     Vista para agregar un nuevo producto. Requiere que el usuario esté autenticado.
@@ -26,7 +25,7 @@ def agregar_producto(request):
         form = ProductoForm()
 
     # Renderiza la plantilla con el formulario
-    return render(request, 'DjangoPrueba/agregar_producto.html', {'form': form})
+    return render(request, 'agregar_producto.html', {'form': form})
 
 
 def detalle_producto(request, pk):
@@ -34,4 +33,11 @@ def detalle_producto(request, pk):
     Muestra los detalles de un producto específico, identificado por su clave primaria (pk).
     """
     producto = get_object_or_404(Producto, pk=pk)
-    return render(request, 'DjangoPrueba/detalle_producto.html', {'producto': producto})
+    return render(request, 'detalle_producto.html', {'producto': producto})
+
+def lista_productos(request):
+    """
+    Vista para la página de inicio. Muestra una lista de todos los productos.
+    """
+    productos = Producto.objects.all()
+    return render(request, 'lista_productos.html', {'productos': productos})

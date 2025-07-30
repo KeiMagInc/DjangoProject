@@ -1,0 +1,40 @@
+<!-- DjangoPrueba/templates/DjangoPrueba/lista_productos.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Productos</title>
+    <style>
+        body { font-family: sans-serif; padding: 2em; }
+        ul { list-style: none; padding: 0; }
+        li { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; }
+        a { text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+    <h1>Catálogo de Productos</h1>
+
+    <p>
+        <a href="{% url 'agregar_producto' %}"><strong>+ Agregar Nuevo Producto</strong></a>
+    </p>
+
+    <hr>
+
+    {% if productos %}
+        <ul>
+        {% for producto in productos %}
+            <li>
+                <h3>
+                    <a href="{{ producto.get_absolute_url }}">{{ producto.nombre }}</a>
+                </h3>
+                <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay productos en el catálogo todavía. ¡Añade el primero!</p>
+    {% endif %}
+
+</body>
+</html>

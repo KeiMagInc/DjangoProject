@@ -4,6 +4,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    # --- AÑADE ESTA NUEVA LÍNEA EN LA CIMA ---
+    # Cuando la URL esté vacía, llama a la vista lista_productos
+    path('', views.lista_productos, name='lista_productos'),
+
     # URL para el formulario de agregar producto
     path('productos/agregar/', views.agregar_producto, name='agregar_producto'),
 

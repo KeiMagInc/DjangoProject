@@ -131,3 +131,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SILKY_PYTHON_PROFILER = True  # Habilita el profiler de Silk
+SYLKY_PYTHON_PROFILER_BINARY = True  # Guarda los perfiles en formato binario
+SILKY_AUTHENTICATION = False  # Requiere autenticación para acceder a Silk
+SILKY_AUTORISE = False
