@@ -19,6 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Añade esta línea para la interfaz de Silk
     path('silk/', include('silk.urls', namespace='silk')),
+
+    # Añade esta línea para incluir todas las URLs de tu aplicación DjangoPrueba
+    path('', include('DjangoPrueba.urls')),
 ]

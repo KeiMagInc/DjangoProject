@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Producto</title>
+    <!-- Opcional: añade algún estilo básico -->
+    <style>
+        body { font-family: sans-serif; padding: 2em; }
+        form > p { margin-bottom: 1em; }
+        label { display: block; }
+    </style>
+</head>
+<body>
+    <h1>Agregar Nuevo Producto</h1>
+    <form method="post">
+        {% csrf_token %} <!-- Token de seguridad de Django, es obligatorio -->
+        {{ form.as_p }} <!-- Renderiza el formulario como párrafos -->
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
